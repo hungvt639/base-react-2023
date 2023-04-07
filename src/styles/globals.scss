@@ -1,0 +1,84 @@
+@use "./root";
+@use "./mixin" as *;
+@use "./tailwind" as *;
+@use "./config";
+
+//bgr
+._bg-primary {
+  background-color: var(--primary);
+}
+
+//width height
+._max-width {
+  width: 100%;
+  max-width: 1440px;
+}
+._max-w {
+  max-width: 1440px;
+}
+
+._max-h-inherit {
+  max-height: inherit;
+}
+._max-h-90vh {
+  max-height: 90vh;
+}
+._max-h-80vh {
+  max-height: 80vh;
+}
+._max-h-70vh {
+  max-height: 70vh;
+}
+
+._h-full-i {
+  height: 100% !important;
+}
+
+._h-70vh {
+  height: 70vh;
+}
+
+//other
+._box-shadow {
+  // box-shadow: 0 2px 2px rgb(0 0 0 / 25%);
+}
+
+._scroolbar {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+//z-index
+._z-1 {
+  z-index: 1;
+}
+._z-2 {
+  z-index: 2;
+}
+._z-3 {
+  z-index: 3;
+}
+
+//
+._dot-before :before {
+  content: "\A";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b83b3b;
+  display: block;
+}

@@ -1,0 +1,88 @@
+@use "./mixin" as *;
+
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-Black.ttf);
+  font-weight: 900;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-ExtraBold.ttf);
+  font-weight: 800;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-Light.ttf);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-ExtraLight.ttf);
+  font-weight: 200;
+}
+@font-face {
+  font-family: Lexend;
+  src: url(./Lexend/Lexend-Thin.ttf);
+  font-weight: 100;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+  overflow: hidden;
+  background-color: var(--bgr);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  border-style: solid;
+  border-width: 0;
+  border-color: #d9d9d9;
+}
+#__next {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+//antd
+.ant-image {
+  img {
+    object-fit: contain;
+  }
+}
