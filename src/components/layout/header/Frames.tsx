@@ -1,15 +1,12 @@
-import route from "@/config/routes";
 import { Avatar, Button, Dropdown } from "antd";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { TbLogout } from "react-icons/tb";
 import { MdOutlineClose } from "react-icons/md";
 import { HiMenu, HiOutlineArrowRight } from "react-icons/hi";
-import useQuery from "@/hooks/useQuery";
-import useAuth from "@/hooks/useAuth";
+import { Link, useLocation } from "react-router-dom";
+import route from "@/router/routes";
 
-type FramesProps = { logo: StaticImageData; menus: Menu[]; type: 0 | 1 | 2 };
+type FramesProps = { logo: string; menus: Menu[]; type: 0 | 1 | 2 };
 interface MenuminProps extends FramesProps {
   showMenu: boolean;
   closeMenu: () => void;
@@ -22,16 +19,17 @@ export type Menu = {
 
 const Frames = (props: FramesProps) => {
   const { logo, menus, type } = props;
-  const { path } = useQuery();
+  const location = useLocation();
+  console.log("🚀  location:", location);
 
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
 
   const [showMenu, setShowMenu] = useState(false);
 
   const menu = useMemo(
     () => (
       <div className="bg-white border rounded-md">
-        {type === 0 && (
+        {/* {type === 0 && (
           <Link href={route.USER.home}>
             <p className="px-5 py-1 border-b cursor-pointer">Thông tin cá nhân</p>
           </Link>
@@ -39,29 +37,29 @@ const Frames = (props: FramesProps) => {
 
         <p className="px-5 py-1 cursor-pointer" onClick={logout}>
           Đăng xuất
-        </p>
+        </p> */}
       </div>
     ),
-    [logout, type]
+    []
   );
   return (
     <header className="sticky top-0 z-10 bg-white border-b _headers">
       <MenuMin {...props} showMenu={showMenu} closeMenu={() => setShowMenu(false)} />
       <div className="flex items-center justify-between px-3 mx-auto _max-width">
         <div className="flex items-center justify-start cursor-pointer">
-          <Link href={route.HOME}>
+          <Link to={route.HOME}>
             <div className="mr-5 _logo">
-              <Image src={logo} alt="logo" />
+              <img src={logo} alt="logo" />
             </div>
           </Link>
           <menu className="flex items-center justify-start _show">
             {menus.map((menu, i) => (
               <div
                 key={i}
-                className={`text-base font-semibold mr-5${path === menu.link ? " border-b-4  border-stone-500" : ""}`}
+                // className={`text-base font-semibold mr-5${path === menu.link ? " border-b-4  border-stone-500" : ""}`}
               >
-                <Link href={menu.link}>
-                  <a className="uppercase">{menu.name}</a>
+                <Link className="uppercase" to={menu.link}>
+                  {menu.name}
                 </Link>
               </div>
             ))}
@@ -70,20 +68,20 @@ const Frames = (props: FramesProps) => {
         <div className="text-base font-semibold _show ">
           <div className="flex items-center justify-start h-full ">
             {type === 0 && (
-              <Link href={route.EMPLOYER.landing}>
+              <Link to={route.EMPLOYER.landing}>
                 <Button className="flex items-center mr-5 uppercase" type="primary">
                   <span className="mr-3 text-base font-semibold">Nhà tuyển dụng</span> <HiOutlineArrowRight size={24} />
                 </Button>
               </Link>
             )}
             {type === 1 && (
-              <Link href={route.HOME}>
+              <Link to={route.HOME}>
                 <Button className="flex items-center mr-5 uppercase" type="primary">
                   <span className="mr-3 text-base font-semibold">Tìm việc làm</span> <HiOutlineArrowRight size={24} />
                 </Button>
               </Link>
             )}
-            {user ? (
+            {/* {user ? (
               <Dropdown arrow overlay={menu} placement="bottomRight">
                 <div className="cursor-pointer">
                   <span>{user.fullname}</span>
@@ -91,10 +89,10 @@ const Frames = (props: FramesProps) => {
                 </div>
               </Dropdown>
             ) : (
-              <Link href={route.LOGIN}>
-                <a className="uppercase">Đăng nhập</a>
+              <Link className="uppercase" to={route.LOGIN}>
+               Đăng nhập
               </Link>
-            )}
+            )} */}
           </div>
         </div>
         <div className="_hide">
@@ -109,7 +107,7 @@ export default Frames;
 
 const MenuMin = (props: MenuminProps) => {
   const { menus, type, showMenu, closeMenu } = props;
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
 
   return (
     <div className="_menu-min">
@@ -129,17 +127,17 @@ const MenuMin = (props: MenuminProps) => {
 
           <div className="pt-1 pb-2 mt-5 border-b-2">
             {menus.map((menu, i) => (
-              <Link href={menu.link} key={i}>
-                <a>
-                  <div className="px-3 py-2 my-1 text-lg font-semibold text-white uppercase hover:bg-green-700">
-                    {menu.name}
-                  </div>
-                </a>
+              <Link to={menu.link} key={i}>
+                {/* <a> */}
+                <div className="px-3 py-2 my-1 text-lg font-semibold text-white uppercase hover:bg-green-700">
+                  {menu.name}
+                </div>
+                {/* </a> */}
               </Link>
             ))}
           </div>
           <div className="pt-1 pb-2 mt-5 mb-10 border-b-2">
-            {user ? (
+            {/* {user ? (
               <div>
                 <Link href={route.USER.home}>
                   <a>
@@ -174,17 +172,17 @@ const MenuMin = (props: MenuminProps) => {
                   </a>
                 </Link>
               </div>
-            )}
+            )} */}
           </div>
           {type === 0 && (
-            <Link href={route.EMPLOYER.landing}>
+            <Link to={route.EMPLOYER.landing}>
               <Button className="mr-5 text-white uppercase border-2 hover:bg-green-700" size="large" type="ghost">
                 Dành cho nhà tuyển dụng
               </Button>
             </Link>
           )}
           {type === 1 && (
-            <Link href={route.HOME}>
+            <Link to={route.HOME}>
               <Button className="mr-5 text-white uppercase border-2 hover:bg-green-700" size="large" type="ghost">
                 Tìm kiếm việc làm
               </Button>
