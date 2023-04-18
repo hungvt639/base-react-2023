@@ -4,6 +4,8 @@ import Footer from "./footer";
 import { SiderUser } from "./sider";
 import { AuthUser } from "./auth";
 
+import "./style.scss";
+
 export interface LayoutProps {
   children: ReactNode;
 }

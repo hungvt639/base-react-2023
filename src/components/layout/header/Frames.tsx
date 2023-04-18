@@ -1,12 +1,11 @@
-import { Avatar, Button, Dropdown } from "antd";
-import { useMemo, useState } from "react";
-import { TbLogout } from "react-icons/tb";
+import { Button } from "antd";
+import { useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { HiMenu, HiOutlineArrowRight } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
-import route from "@/router/routes";
+import route from "router/routes";
 
-type FramesProps = { logo: string; menus: Menu[]; type: 0 | 1 | 2 };
+type FramesProps = { logo?: string; menus: Menu[]; type: 0 | 1 | 2 };
 interface MenuminProps extends FramesProps {
   showMenu: boolean;
   closeMenu: () => void;
@@ -26,22 +25,22 @@ const Frames = (props: FramesProps) => {
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const menu = useMemo(
-    () => (
-      <div className="bg-white border rounded-md">
-        {/* {type === 0 && (
-          <Link href={route.USER.home}>
-            <p className="px-5 py-1 border-b cursor-pointer">Thông tin cá nhân</p>
-          </Link>
-        )}
+  // const menu = useMemo(
+  //   () => (
+  //     <div className="bg-white border rounded-md">
+  //       {/* {type === 0 && (
+  //         <Link href={route.USER.home}>
+  //           <p className="px-5 py-1 border-b cursor-pointer">Thông tin cá nhân</p>
+  //         </Link>
+  //       )}
 
-        <p className="px-5 py-1 cursor-pointer" onClick={logout}>
-          Đăng xuất
-        </p> */}
-      </div>
-    ),
-    []
-  );
+  //       <p className="px-5 py-1 cursor-pointer" onClick={logout}>
+  //         Đăng xuất
+  //       </p> */}
+  //     </div>
+  //   ),
+  //   []
+  // );
   return (
     <header className="sticky top-0 z-10 bg-white border-b _headers">
       <MenuMin {...props} showMenu={showMenu} closeMenu={() => setShowMenu(false)} />
@@ -49,7 +48,7 @@ const Frames = (props: FramesProps) => {
         <div className="flex items-center justify-start cursor-pointer">
           <Link to={route.HOME}>
             <div className="mr-5 _logo">
-              <img src={logo} alt="logo" />
+              <img className="w-full" src={logo} alt="logo" />
             </div>
           </Link>
           <menu className="flex items-center justify-start _show">

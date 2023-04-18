@@ -1,13 +1,10 @@
-import route from "@/router/routes";
-import { useEffect, Fragment, ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { Fragment, ReactNode } from "react";
 
 interface AuthProps {
   children: ReactNode;
 }
 
 export function AuthUser({ children }: AuthProps) {
-  const router = useNavigate();
   //   const { user, firstLoading, isEmployer, isAdmin, isUser } = useAuth();
 
   //   useEffect(() => {

@@ -1,8 +1,6 @@
 type FooterProps = {};
 
 const Footer = (props: FooterProps) => {
-  const {} = props;
-
   return (
     <footer className="py-10 _bg-primary">
       <p className="text-center text-white">Jobopen By V.T.H</p>

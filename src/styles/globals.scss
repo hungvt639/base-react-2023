@@ -1,8 +1,8 @@
 @use "./root";
 @use "./mixin" as *;
-@use "./tailwind" as *;
 @use "./config";
 
+@import "./tailwind";
 //bgr
 ._bg-primary {
   background-color: var(--primary);
@@ -40,7 +40,7 @@
 
 //other
 ._box-shadow {
-  // box-shadow: 0 2px 2px rgb(0 0 0 / 25%);
+  box-shadow: 0 2px 2px rgb(0 0 0 / 25%);
 }
 
 ._scroolbar {

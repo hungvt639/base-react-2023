@@ -1,6 +1,6 @@
 import Routers from "./router";
+import { ConfigProvider } from "antd";
 import "./styles/globals.scss";
-import { Button, ConfigProvider } from "antd";
 
 function App() {
   return (

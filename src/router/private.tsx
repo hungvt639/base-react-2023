@@ -1,12 +1,12 @@
-import { LayoutUser } from "@/components/layout";
+import { LayoutUser } from "components/layout";
+import { Outlet } from "react-router-dom";
 
 type PrivateRouterProps = {};
 
 const PrivateRouter = (props: PrivateRouterProps) => {
-  const {} = props;
   return (
     <LayoutUser>
-      <div>Private</div>
+      <Outlet />
     </LayoutUser>
   );
 };

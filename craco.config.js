@@ -1,5 +1,5 @@
 const CracoLessPlugin = require("craco-less");
-
+const path = require("path");
 module.exports = {
   plugins: [
     {
@@ -10,6 +10,11 @@ module.exports = {
             // modifyVars: { "@primary-color": "#1DA57A" },
             javascriptEnabled: true,
           },
+        },
+      },
+      webpack: {
+        alias: {
+          "@": path.resolve(__dirname, "src"),
         },
       },
     },
